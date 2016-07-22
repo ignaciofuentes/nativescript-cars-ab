@@ -1,0 +1,112 @@
+<page
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer"
+  xmlns:lv="nativescript-telerik-ui-pro/listview"
+  xmlns:widgets="shared/widgets"
+  loaded="loaded">
+  <page.actionBar>
+    <action-bar title="List">
+      <navigation-button icon="~/ic_menu.png" tap="toggleDrawer" ios:visibility="collapsed" />
+      <action-bar.actionItems>
+        <ios>
+          <action-item icon="~/ic_menu.png" ios.position="left" tap="toggleDrawerTapped" />
+        </ios>
+         <action-item id="cancelButton" text="Cancel" tap="cancelButtonTapped" ios.position="left" visibility="{{ cancelButtonVisible ? 'visible':'collapse' }}" />
+         <action-item id="compareButton" text="Compare" tap="compareButtonTapped" ios.position="right" visibility="{{ compareButtonVisible ? 'visible':'collapse' }}" />
+     
+      </action-bar.actionItems>
+    </action-bar>
+  </page.actionBar>
+
+  <drawer:rad-side-drawer id="drawer">
+    <drawer:rad-side-drawer.mainContent>
+     <grid-layout rows="auto, *" id="main-content" loaded="mainContentLoaded">
+        <grid-layout row="0" rows="*" columns="auto,*,auto" class="myHeader" height="50" style="background-color: #d9d7da;">
+            <button tap="filtersButtonTapped" style="margin-left:10;font-size:17" col="0" verticalAlignment="center">
+                <button.formattedText>
+                    <formatted-string>
+                        <formatted-string.spans>
+                            <span text="&#xf1de;  " fontFamily="FontAwesome" foregroundColor="#1b5288" fontSize="17" />
+                            <span text="Filters" foregroundColor="#1b5288"/>
+                        </formatted-string.spans>
+                    </formatted-string>
+                </button.formattedText>
+            </button>
+            <label text="{{ headerLabel }}" style="color:#a0a2a8" col="1" verticalAlignment="center" horizontalAlignment="center" />
+            <button tap="savedButtonTapped" style="color:#1b5288;margin-right:10;font-size:17" text="Saved" col="2" verticalAlignment="center">
+                <button.formattedText>
+                        <formatted-string>
+                            <formatted-string.spans>
+                                <span text="&#xf005;  " fontFamily="FontAwesome" foregroundColor="#1b5288" fontSize="14" />
+                                <span text="Saved" foregroundColor="#1b5288"/>
+                            </formatted-string.spans>
+                        </formatted-string>
+                    </button.formattedText>
+            </button>
+        </grid-layout>
+       <lv:rad-list-view
+            items="{{ carList }}"
+            itemHold="onItemHold"
+            itemTap="onItemTap"
+            id="car-list"
+            selectionBehavior="LongPress"
+            multipleSelection="false"
+            itemSelecting="onItemSelecting"
+            itemSelected="onItemSelected"
+            itemDeselected="onItemDeselected"
+            itemDeselecting="onItemDeselecting"
+            row="1">       
+           <lv:rad-list-view.listViewLayout>
+               <lv:ListViewLinearLayout scrollDirection="Vertical" itemHeight="120" />
+           </lv:rad-list-view.listViewLayout>    
+           <lv:rad-list-view.itemTemplate>
+            <grid-layout>
+                <grid-layout columns="auto,auto, *" rows="auto,*">
+                    <image width="24" marginLeft="9" col="0" row="0" rowSpan="2" src="{{ isSelected === true ? '~/ic_selected.png' : '~/ic_nonselected.png' }}" visibility="{{ $parents['RadListView'].inSelectionMode, $parents['RadListView'].inSelectionMode ? 'visible' : 'collapse' }}"/>     
+                    <label
+                        row="0"
+                        col="1"
+                        colSpan="3"
+                        class="listItem"
+                        text="{{ model }}"
+                    />
+                    <image row="1" col="1"                  
+                        src="{{ imageUrl }}"         
+                        class="image"
+                    />
+                    <stack-layout row="1" col="2" verticalAlignment="center">
+                        <repeater items="{{ extraData }}">
+                            <repeater.itemTemplate>
+                                <label class="itemDetailText" fontSize="14">
+                                <label.formattedText>
+                                    <formatted-string>
+                                    <formatted-string.spans>
+                                        <span text="{{ key +': ' }}" fontAttributes="Bold" />
+                                        <span text="{{ value }}" />
+                                    </formatted-string.spans>
+                                    </formatted-string>
+                                </label.formattedText>
+                            </label>
+                            </repeater.itemTemplate>
+                        </repeater>
+                    </stack-layout>
+                    <stack-layout class="separator" row="2" col="0" colSpan="3" 
+                    verticalAlignment="bottom"  />                        
+                </grid-layout>
+                <button
+                    tap="favoriteButtonTapped"
+                    class="{{ favorited ? 'favdImage' : 'favImage' }}"
+                    horizontalAlignment="right"
+                    verticalAlignment="top"                                  
+                    />
+            </grid-layout>
+          </lv:rad-list-view.itemTemplate>
+        </lv:rad-list-view>
+        <activity-indicator busy="{{ isLoading }}" rowSpan="2" />
+    </grid-layout>
+    </drawer:rad-side-drawer.mainContent>
+    <drawer:rad-side-drawer.drawerContent>
+      <widgets:drawer-content />
+    </drawer:rad-side-drawer.drawerContent>
+  </drawer:rad-side-drawer>
+</page>

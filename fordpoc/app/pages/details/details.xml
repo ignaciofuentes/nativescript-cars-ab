@@ -1,0 +1,52 @@
+<page
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer"
+  xmlns:widgets="shared/widgets"
+  loaded="loaded"
+  navigatedTo="navigatedTo">
+   <page.actionBar>
+    <action-bar id="pageTitle">
+        <navigation-button text="" android.systemIcon = "ic_menu_back"/>
+    </action-bar>
+   </page.actionBar>
+
+    <scroll-view>
+      <!-- Settings page content -->
+        <grid-layout loaded="mainContentLoaded" rows="auto,auto,*">
+            <!-- Images -->
+            <grid-layout height="174">
+                <image class="carImage" row="0" col="0" src="{{ imageUrl }}" strecth="none" horizontalAlignment="center" verticalAlignment="top" />
+
+            </grid-layout>
+            <!-- Details List -->
+            <repeater items="{{ details }}" row="1" class="detailsGrid">
+                <repeater.itemTemplate>
+                    <grid-layout columns="90,*" height="30">
+                        <label class="itemHeader" text="{{ key }}" col="0" horizontalAlignment="left" />
+                        <label class="itemValue" text="{{ value }}" col="1" horizontalAlignment="left" />              
+                    </grid-layout>
+                </repeater.itemTemplate>
+            </repeater>
+            <stack-layout class="line" row="2" col="0" verticalAlignment="top" />
+            <!-- Options -->
+            <stack-layout row="2">
+                <grid-layout class="optionGrid">            
+                    <label text="See dealer list" class="option" verticalAlignment="center" />
+                    <label text="&#xf105; " class="arrow" horizontalAlignment="right" verticalAlignment="center" />
+                </grid-layout>
+                <stack-layout class="line" />
+                <grid-layout class="optionGrid">            
+                    <label text="Schedule drive test" class="option" verticalAlignment="center" />
+                    <label text="&#xf105; " class="arrow" horizontalAlignment="right" verticalAlignment="center" />
+                </grid-layout>
+                <stack-layout class="line" />
+                <grid-layout class="optionGrid">            
+                    <label text="Financing options" class="option" verticalAlignment="center" />
+                    <label text="&#xf105; " class="arrow" horizontalAlignment="right" verticalAlignment="center" />
+                </grid-layout>
+                <stack-layout class="line" />                    
+             </stack-layout>   
+        </grid-layout>
+    </scroll-view>
+  
+</page>

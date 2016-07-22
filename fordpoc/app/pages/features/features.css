@@ -1,0 +1,40 @@
+.feature-label {
+    margin: 0 0 0 20;
+    color:black; 
+}
+
+.listItemArrow {
+    margin: 2 10 0 0;
+}
+
+.separator {
+    background-color: #DBDBDB;
+    height: 1;
+}
+
+Page {
+    background-color: #DBDBDB;
+}
+
+.selectButton {
+    font-weight: bold;
+    margin: 0 15 15 15;
+    color:white;
+    background-color:#e05544;    
+}
+
+.tag {
+    padding:5;
+    font-size:14;
+    margin:5;
+    color:white;
+    background-color:#e05544;
+    border-radius: 3;
+     
+}
+.optionGrid {
+    background-color:white;
+}
+.arrow {
+    margin-right:5
+}

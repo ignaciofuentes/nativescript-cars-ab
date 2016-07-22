@@ -1,112 +1,55 @@
-.km-icon {
-    font-family: 'kendoui';
-    vertical-align: center;
-    horizontal-align: center;
+action-bar {
+  background-color: #3D91CB;
+  color: white;
 }
-
-page {
-    background-color: #fff;
+.label {
+  margin: 20;
 }
-
-button {
-    horizontal-align: stretch;
+.drawer-content {
+  background-color: #3D91CB;
+  color: white;
+  padding-top: 20;
 }
-
-image,
-activityindicator {
-    horizontal-align: center;
-    vertical-align: center;
+.drawer-content label {
+  font-size: 20;
+  margin: 10 0 15 25;
 }
-
-label,
-textfield,
-searchbar,
-switch {
-    vertical-align: center;
+.selected {
+  color: #e4ba4e;
 }
-
-switch {
-    horizontal-align: right;
-}
-
-.form-item {
-    padding: 0 12;
-}
-
-.form-label {
-    margin-left: 12;
-}
-
-.form-field {
-    margin: 6 12 6 0;
-}
-
-.form-buttons {
-    padding: 0 6;
-}
-
-.form-link {
-    horizontal-align: center;
-    font-size: 18;
-    margin-top: 10;
-}
-
-.form-item-border {
-    background-color: #ccc;
-    vertical-align: bottom;
+.line {
+    background-color: #DBDBDB;
     height: 1;
+    margin:0;
 }
-
-.ios-form-button {
-    margin: 12 6;
+.font-awesome {
+    font-family: "FontAwesome";   
 }
+.favdImage {
+    background-image: url("~/star_white.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size:56 36;
+    height:40;
+    width:56;
 
-.title {
-    font-size: 30;
-    horizontal-align: center;
-    margin: 20;
 }
-
-.message {
-    font-size: 20;
-    color: #284848;
-    horizontal-align: center;
+.favImage {
+    background-image: url("~/star_light_blue.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size:56 36;
+    height:40;
+    width:56;
 }
-
-.padded-label {
-    padding: 0 12;
+.arrow {
+    font-family: FontAwesome;
+    font-size:22;
+    color:#3D91CB;
 }
-
-.padded-label-stack {
-    padding: 12;
+.itemDetailText {
+    color:#92958A; 
 }
-
-.title-label {
-    padding: 0 0 12 0;
-    font-weight: bold;
+.small {
+    font-size:14
 }
-
-.about-image {
-    horizontal-align: left;
-    vertical-align: top;
-    height: 100;
-    margin-right: 10;
-}
-
-.list-item {
-    padding: 10 16;
-}
-
-.list-icon {
-    width: 36;
-    text-align: center;
-}
-
-
-/* START_CUSTOM_CODE_nativeScriptApp */
-
-
-/* Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes */
-
-
-/* END_CUSTOM_CODE_nativeScriptApp */

@@ -1,8 +1,12 @@
-var application = require('application');
-
-application.mainModule = 'navigation/navigation';
-// START_CUSTOM_CODE_nativeScriptApp
-// Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
-
-// END_CUSTOM_CODE_nativeScriptApp
-application.start();
+var application = require("application");
+var appSettings = require("application-settings");
+var appLoadedBefore = appSettings.hasKey("firstTime");
+var moduleName;
+if(appLoadedBefore){  
+    moduleName =  "pages/list/list"; 
+}
+else {
+    moduleName = "pages/settings/settings";
+    appSettings.setBoolean("firstTime", false);    
+}
+application.start({ moduleName: moduleName});

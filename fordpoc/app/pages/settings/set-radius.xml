@@ -1,0 +1,31 @@
+<page
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+  xmlns:widgets="shared/widgets"
+  xmlns:lv="nativescript-telerik-ui/listview"
+  loaded="loaded">
+   <page.actionBar>
+    <action-bar id="pageTitle" title="Radius">
+        <navigation-button text="" android.systemIcon = "ic_menu_back"/>
+    </action-bar>
+   </page.actionBar>
+    <lv:rad-list-view 
+        id="radiusList" 
+        items="{{ items }}" 
+        itemTap="tapped"
+        itemSelected="onItemSelected"
+        itemDeselected="onItemDeselected"
+        selectionBehavior="Press"
+        multipleSelection="false">
+    <lv:rad-list-view.listViewLayout>
+            <lv:ListViewLinearLayout scrollDirection="Vertical" itemHeight="40" />
+    </lv:rad-list-view.listViewLayout>   
+    <lv:rad-list-view.itemTemplate>
+        <grid-layout height="40" columns="auto,*,80" style="background-color:white">            
+            <label text="{{ optionLabel }}" verticalAlignment="center" style="margin-left:10" col="0" />
+            <label text="{{ selected ? '&#xf00c;' : '    ' }}" horizontalAlignment="right" style="background-color:white;margin-right:18" class="arrow" verticalAlignment="center" col="2" />
+            <stack-layout class="line" verticalAlignment="bottom" colSpan="3" />
+        </grid-layout>
+    </lv:rad-list-view.itemTemplate>
+    </lv:rad-list-view>  
+</page>
