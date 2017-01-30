@@ -13,20 +13,21 @@ var ds;
 var listView;
 
 exports.pageLoaded = function (args) {
-    ds = new DataService();
-    vm = new Observable();
-    observableCars = new ObservableArray([]);
-    vm.set("carList", observableCars);
-    dataLoaded = false;
-    SwissArmyKnife.SwissArmyKnife.actionBarSetStatusBarStyle(1);
-    vm.set("selectedPage","home");
-    page = args.object;  
-    listView = page.getViewById("car-list");  
-    setCancelButtonVisibility(false);
-    setCompareButtonText(compareButtonText());
-    vm.set("headerLabel", headerLabel);
-    page.bindingContext = vm;
     if(!dataLoaded){
+        ds = new DataService();
+        vm = new Observable();
+        observableCars = new ObservableArray([]);
+        vm.set("carList", observableCars);
+        dataLoaded = false;
+        SwissArmyKnife.SwissArmyKnife.actionBarSetStatusBarStyle(1);
+        vm.set("selectedPage","home");
+        page = args.object;  
+        listView = page.getViewById("car-list");  
+        setCancelButtonVisibility(false);
+        setCompareButtonText(compareButtonText());
+        vm.set("headerLabel", headerLabel);
+        page.bindingContext = vm;
+        console.log("loaded");
         vm.set("isLoading",true);
         ds.fetchData(false).then(processResponse);
     }
