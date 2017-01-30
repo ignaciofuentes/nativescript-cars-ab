@@ -47,7 +47,6 @@ DataService.prototype.fetchData = function(favoritesOnly){
         return response.json();
     })
     .catch(function(){
-        //alert("Something went wrong. Please try again");
         TNSFancyAlert.showError('Oh no!', 'Something went wrong. Please try again', 'Close');
 
 });
@@ -61,16 +60,12 @@ DataService.prototype.fetchToken = function(username,password){
     })
     .then(handleErrors)
     .then(function(response){
-        console.log("response");
         return response.json();     
     })
-    .then(function(jsonObject){
-        //console.log(JSON.stringify(jsonObject));
-        
+    .then(function(jsonObject){        
         token = "Bearer "+ jsonObject.Result.access_token;
         appSettings.setString("token", token);
 
-        console.log("all good");
         return {success:true};
     })
     .catch(function(){
@@ -79,7 +74,6 @@ DataService.prototype.fetchToken = function(username,password){
 }
 
 function handleErrors(response) {
-    //console.log(JSON.stringify(response));
     if (!response.ok) {
         throw Error();
     }

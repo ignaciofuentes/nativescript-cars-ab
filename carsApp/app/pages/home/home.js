@@ -6,36 +6,34 @@ var SwissArmyKnife=  require('nativescript-swiss-army-knife/nativescript-swiss-a
 
 var vm;
 var page;
-var dataLoaded;
+var dataLoaded =false;
 var observableCars;
 const MAXCARSTOCOMPARE = 2;
 var ds;
 var listView;
-
 exports.pageLoaded = function (args) {
+    page = args.object; 
+    listView = page.getViewById("car-list");
     if(!dataLoaded){
         ds = new DataService();
         vm = new Observable();
         observableCars = new ObservableArray([]);
         vm.set("carList", observableCars);
-        dataLoaded = false;
         SwissArmyKnife.SwissArmyKnife.actionBarSetStatusBarStyle(1);
         vm.set("selectedPage","home");
-        page = args.object;  
-        listView = page.getViewById("car-list");  
         setCancelButtonVisibility(false);
         setCompareButtonText(compareButtonText());
         vm.set("headerLabel", headerLabel);
-        page.bindingContext = vm;
-        console.log("loaded");
         vm.set("isLoading",true);
         ds.fetchData(false).then(processResponse);
     }
+    page.bindingContext = vm;
+
 };
 
 exports.navigate = function(args) {
-  var pageName = args.view.text.toLowerCase();
-  topmost().navigate("pages/" + pageName + "/" + pageName);
+    var pageName = args.view.text.toLowerCase();
+    topmost().navigate("pages/" + pageName + "/" + pageName);
 }
 
 exports.onItemSelected = function(args) {

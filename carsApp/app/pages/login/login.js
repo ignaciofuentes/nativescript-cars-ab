@@ -18,10 +18,8 @@ exports.loaded = function (args){
 }
 
 exports.login = function (){
-    console.log("logging in");
     ds.fetchToken(vm.userName, vm.password).then(function(r){
         if(r.success){
-            console.log("all good");
             topmost().navigate({moduleName:"pages/home/home", clearHistory:true });
         }
         else {
