@@ -36,8 +36,9 @@
     </action-bar>
   </dpg:DrawerPage.actionBar>
      <grid-layout rows="auto, *" id="main-content">
-        <grid-layout row="0" rows="*" columns="*,*,*" class="myHeader" height="50">
-            <button height="100%" style="background-color:transparent;border-color:rgba(255, 0, 0, 0.0);border-width: 1;" tap="filtersButtonTapped" col="0" verticalAlignment="center" horizontalAlignment="left" isEnabled="{{ !inSelectionMode && !isLoading }}">
+        <grid-layout class="myHeader-container" height="50">
+        <grid-layout columns="*,*,*" class="myHeader" height="100%">
+            <button tap="filtersButtonTapped" col="0" verticalAlignment="center" horizontalAlignment="center" isEnabled="{{ !inSelectionMode && !isLoading }}">
                 <button.formattedText>
                     <formatted-string>
                         <formatted-string.spans>
@@ -48,7 +49,7 @@
                 </button.formattedText>
             </button>
             <label text="{{ isLoading, isLoading |  headerLabel(isLoading, carList) }}" col="1" verticalAlignment="center" horizontalAlignment="center" />
-            <button height="100%" style="background-color:transparent;border-color:rgba(255, 0, 0, 0.0);border-width: 1;" tap="savedButtonTapped" horizontalAlignment="right" text="Saved" col="2" verticalAlignment="center" isEnabled="{{ !inSelectionMode && !isLoading }}">
+            <button tap="savedButtonTapped" horizontalAlignment="right" text="Saved" col="2" verticalAlignment="center" isEnabled="{{ !inSelectionMode && !isLoading }}">
                 <button.formattedText>
                         <formatted-string>
                             <formatted-string.spans>
@@ -58,6 +59,7 @@
                         </formatted-string>
                     </button.formattedText>
             </button>
+            </grid-layout>
         </grid-layout>
        <lv:rad-list-view
             items="{{ carList }}"
@@ -76,7 +78,13 @@
            <lv:rad-list-view.itemTemplate>
             <grid-layout backgroundColor="white">
                 <grid-layout columns="auto,auto, *" rows="auto,*">
-                    <label style="margin-left:10;font-size:20;color:#ff101f; background-color:transparent;" class="font-awesome" text="{{isSelected ? '&#xf05d;':'&#xf1db;'}}" rowSpan="2" visibility="{{ $parents['RadListView'].inSelectionMode, $parents['RadListView'].inSelectionMode ? 'visible' : 'collapse' }}" verticalAlignment="center" />     
+                    <label 
+                        style="margin-left:10;font-size:20;color:#ff101f; background-color:transparent;" 
+                        class="check font-awesome" 
+                        text="{{isSelected ? '&#xf05d;':'&#xf1db;'}}" 
+                        rowSpan="2" 
+                        visibility="{{ $parents['RadListView'].inSelectionMode, $parents['RadListView'].inSelectionMode ? 'visible' : 'collapse' }}" 
+                        verticalAlignment="center" />     
                     <label row="0" col="1" colSpan="3" class="listItem" text="{{ model }}"/>
                     <image row="1" col="1" src="{{ imageUrl }}" class="image" />
                     <stack-layout row="1" col="2" verticalAlignment="center">
@@ -98,7 +106,7 @@
                     <stack-layout class="separator" row="2" col="0" colSpan="3" 
                     verticalAlignment="bottom"  />                        
                 </grid-layout>
-               <button width="20%" height="35%" style="background-color:transparent;border-color:rgba(255, 0, 0, 0.0);border-width: 1;font-size:16;color:#ff101f; text-align:center;" text="{{favorited? '&#xf005;' : '&#xf006;'}}" class="font-awesome" horizontalAlignment="right" verticalAlignment="top" tap="favoriteButtonTapped"></button>
+               <button width="20%" height="35%" style="" text="{{favorited? '&#xf005;' : '&#xf006;'}}" class="font-awesome star" horizontalAlignment="right" verticalAlignment="top" tap="favoriteButtonTapped"></button>
             </grid-layout>
           </lv:rad-list-view.itemTemplate>
         </lv:rad-list-view>

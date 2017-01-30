@@ -11,21 +11,49 @@
     margin-right:10;
 }
 
-.myHeader {
+
+.myHeader-container {
     background-color: #0a2463;
     color:white;
+
 }
 
-    .myHeader button {
-        margin:10 14 10 14;
-        font-size:17
+.myHeader {
+    margin:10;
+}
+    .myHeader button{
+        margin-left:-66;
+        margin-right: 4;
+        font-size:17;
+        text-align:right;
+        background-color:transparent;
+        border-color:rgba(255, 0, 0, 0.0);
+        border-width: 1;
     }
     .myHeader label {
         color:white;
         text-align:left;
     }
+    .header-item {
+
+    }
 
 .separator {
     background-color: #DBDBDB;
     height: 1;
+}
+
+.star {
+    background-color:transparent;
+    border-color:rgba(255, 0, 0, 0.0);
+    border-width: 1;
+    font-size:16;
+    color:#ff101f; 
+    text-align:center;
+}
+.check {
+    margin-left:10;
+    font-size:20;
+    color:#ff101f; 
+    background-color:transparent;
 }

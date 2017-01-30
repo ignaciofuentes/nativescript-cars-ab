@@ -5,8 +5,10 @@
   loaded="loaded"
   navigatedTo="navigatedTo">
    <page.actionBar>
-    <action-bar class="action-bar" id="pageTitle" title="{{ title }}">
-        <navigation-button text="" android.systemIcon="ic_menu_back"/>
+    <action-bar class="action-bar" title="{{ title }}">
+        <ios>
+            <navigation-button text="" android.systemIcon="ic_menu_back"/>
+        </ios>
     </action-bar>
    </page.actionBar>
     <scroll-view>

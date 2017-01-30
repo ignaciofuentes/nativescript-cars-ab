@@ -5,5 +5,7 @@
 
 .sidedrawer-left label {
   font-size: 20;
-  margin: 10 0 15 25;
+  height:40;
+  margin: 0 0 0 25;
+  color:white;
 }

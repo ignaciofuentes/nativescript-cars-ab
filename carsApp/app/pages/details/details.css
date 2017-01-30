@@ -19,15 +19,10 @@
 }
 .option {
     color:#32364c;
-
     font-size: 17;
 }
 .optionGrid {
-
-    margin-top:10;
-    margin-left:10;
-    margin-right:10;
-    margin-bottom:10;
+    margin:10;
 }
 .arrow {
     font-family: FontAwesome;
