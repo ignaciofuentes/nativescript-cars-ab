@@ -1,4 +1,4 @@
-# nativescript-cars-ab
+# NativeScript Cars
 
 Simple demo of a cars browser mobile app built with NativeScript
 
