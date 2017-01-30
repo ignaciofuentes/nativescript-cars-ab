@@ -1,0 +1,43 @@
+<page
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+  xmlns:widgets="shared/widgets"
+  loaded="loaded"
+  navigatedTo="navigatedTo">
+   <page.actionBar>
+    <action-bar class="action-bar" title="Compare">
+        <navigation-button text="" android.systemIcon = "ic_menu_back"/>
+    </action-bar>
+   </page.actionBar>
+
+    <scroll-view>
+      <!-- Settings page content -->
+        <grid-layout rows="auto,*,auto">
+            <!-- Images -->
+            <grid-layout columns="*,*">
+                <image class="carImage" row="0" col="0" src="{{ car1.imageUrl }}" />
+                <image class="carImage" id="image2" row="0" col="1" src="{{ car2.imageUrl }}" />
+                <button  width="60" height="34" style="font-size:16;color:#ff101f; text-align:right; margin-right:10" text="{{car1Favorited? '&#xf005;' : '&#xf006;'}}" class="font-awesome" horizontalAlignment="right" verticalAlignment="top" tap="favoriteCar1ButtonTapped"></button>
+                <button col="1" width="60" height="34" style="font-size:16;color:#ff101f; text-align:right; margin-right:10" text="{{car2Favorited? '&#xf005;' : '&#xf006;'}}" class="font-awesome" horizontalAlignment="right" verticalAlignment="top" tap="favoriteCar2ButtonTapped"></button>
+            </grid-layout>
+            <!-- Details List -->
+            <repeater items="{{ details }}" row="1">
+                <repeater.itemTemplate>
+                    <grid-layout columns="*,*" rows="auto,auto">
+                        <label class="itemHeader" text="{{ key }}" col="0" row="0" colSpan="2" horizontalAlignment="left" />
+                        <label class="itemValue" text="{{ value.car1 }}" row="1" col="0" horizontalAlignment="left" textWrap="true" />
+                        <label class="itemValue" text="{{ value.car2 }}" row="1" col="1" horizontalAlignment="left" textWrap="true" />                
+                        <stack-layout class="line" row="1" col="0" colSpan="2" verticalAlignment="bottom" />
+                    </grid-layout>
+                </repeater.itemTemplate>
+            </repeater>
+            <!-- Buttons -->
+            <grid-layout row="2" columns="*,*" style="margin:60 0 0 0">
+                <button tap="car1SelectButtonTapped" text="Select" class="btn btn-primary" height="40" col="0" />
+                <button tap="car2SelectButtonTapped" text="Select" class="btn btn-primary" height="40" col="1" /> 
+             </grid-layout>  
+        <activity-indicator class="activity-indicator" busy="{{ isLoading }}" rowSpan="3" />
+        </grid-layout>
+    </scroll-view>
+  
+</page>

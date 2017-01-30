@@ -1,0 +1,25 @@
+@import 'nativescript-theme-core/css/core.light.css';
+@import 'custom.css';
+
+.label {
+  margin: 20;
+}
+
+.selected {
+  color: #e4ba4e;
+}
+.line {
+    background-color: #DBDBDB;
+    height: 1;
+    margin:0;
+}
+.font-awesome {
+    font-family: "FontAwesome";   
+}
+
+.itemDetailText {
+    color:#92958A; 
+}
+.small {
+    font-size:14
+}

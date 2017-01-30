@@ -1,7 +1,0 @@
-{
-    "dependencies": {
-		"nativescript-telerik-ui-pro": "1.0.1",
-		"tns-core-modules": "1.7.1"
-	},
-    "devDependencies": {}
-}

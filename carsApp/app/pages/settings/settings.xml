@@ -1,0 +1,30 @@
+<dpg:DrawerPage
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+  xmlns:dpg="nativescript-telerik-ui/sidedrawer/drawerpage"
+  xmlns:lv="nativescript-telerik-ui/listview"
+  xmlns:widgets="shared/widgets"
+  loaded="pageLoaded"
+  class="page"
+  >
+  <dpg:DrawerPage.sideDrawer>
+  <drawer:rad-side-drawer id="drawer">
+    <drawer:rad-side-drawer.drawerContent>
+      <widgets:drawer-content />
+    </drawer:rad-side-drawer.drawerContent>
+  </drawer:rad-side-drawer>
+  </dpg:DrawerPage.sideDrawer>
+  <dpg:DrawerPage.actionBar>
+    <action-bar class="action-bar" title="Settings">
+      <navigation-button icon="res://ic_menu" tap="toggleDrawer" ios:visibility="collapsed" />
+      <action-bar.actionItems>
+        <ios>
+          <action-item icon="res://ic_menu" ios.position="left" tap="toggleDrawer" />
+        </ios>
+      </action-bar.actionItems>
+    </action-bar>
+  </dpg:DrawerPage.actionBar>
+  <grid-layout>
+    <button text="Log out" tap="logout" height="40" class="btn btn-primary" />
+  </grid-layout>
+</dpg:DrawerPage>

@@ -1,0 +1,9 @@
+.sidedrawer-left {
+    width:400;
+    background-color: #ff101f;
+}
+
+.sidedrawer-left label {
+  font-size: 20;
+  margin: 10 0 15 25;
+}

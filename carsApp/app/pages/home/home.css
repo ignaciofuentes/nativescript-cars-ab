@@ -1,0 +1,31 @@
+.listItem{    
+    margin:10 0 0 10;
+    font-size: 16;
+    color:#32364c;
+}
+
+.image {
+    width:36%;
+    border-width:0;
+    margin-left:6;
+    margin-right:10;
+}
+
+.myHeader {
+    background-color: #0a2463;
+    color:white;
+}
+
+    .myHeader button {
+        margin:10 16 10 16;
+        font-size:17
+    }
+    .myHeader label {
+        color:white;
+        text-align:left;
+    }
+
+.separator {
+    background-color: #DBDBDB;
+    height: 1;
+}

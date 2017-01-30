@@ -1,0 +1,25 @@
+<page
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+  xmlns:lv="nativescript-telerik-ui/listview"
+  xmlns:widgets="shared/widgets"
+  loaded="loaded"
+  class="page"
+  >
+  <page.actionBar>
+    <action-bar class="action-bar" title="Login">
+    </action-bar>
+  </page.actionBar>
+
+  <StackLayout class="form">
+  <StackLayout class="input-field">
+      <Label text="Username"></Label>
+    <TextField class="input input-border" autocapitalizationType="none" autocorrect="false" keyboardType="email" returnKeyType="next"  height="40" text="{{ userName }}"></TextField>
+  </StackLayout>
+  <StackLayout class="input-field">
+   <Label text="Password"></Label> 
+    <TextField class="input input-border" height="40" hint="Password" secure="true" returnKeyType="done" text="{{ password }}"></TextField>
+  </StackLayout>
+  <button text="Log in" tap="login" height="40" class="btn btn-primary" />
+</StackLayout>
+</page>

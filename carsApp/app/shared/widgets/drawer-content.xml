@@ -1,0 +1,11 @@
+<StackLayout class="sidedrawer-left">
+  <StackLayout class="sidedrawer-content" style="margin-top:40;">
+    <!-- A list item with no icon -->
+    <GridLayout class="sidedrawer-list-item active" rows="*" columns="*">
+      <Label row="0" col="0" text="Home" tap="navigate"></Label>
+    </GridLayout>
+    <GridLayout class="sidedrawer-list-item" rows="*" columns="*">
+      <Label row="0" col="0" text="Settings" tap="navigate"></Label>
+    </GridLayout>
+  </StackLayout>
+</StackLayout>

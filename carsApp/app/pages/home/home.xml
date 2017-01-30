@@ -1,0 +1,107 @@
+<dpg:DrawerPage
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+  xmlns:dpg="nativescript-telerik-ui/sidedrawer/drawerpage"
+  xmlns:lv="nativescript-telerik-ui/listview"
+  xmlns:widgets="shared/widgets"
+  loaded="pageLoaded"
+  class="page"
+  >
+  <dpg:DrawerPage.sideDrawer>
+  <drawer:rad-side-drawer id="drawer">
+    <drawer:rad-side-drawer.drawerContent>
+      <widgets:drawer-content />
+    </drawer:rad-side-drawer.drawerContent>
+  </drawer:rad-side-drawer>
+  </dpg:DrawerPage.sideDrawer>
+  <dpg:DrawerPage.actionBar>
+    <action-bar class="action-bar" title="Cars">
+      <navigation-button icon="res://ic_menu" tap="toggleDrawerTapped" ios:visibility="collapsed" />
+      <action-bar.actionItems>
+        <ios>
+          <action-item icon="res://ic_menu" ios.position="left" tap="toggleDrawerTapped" />
+        </ios>
+         <action-item tap="cancelButtonTapped" ios.position="left" visibility="{{ cancelButtonVisible ? 'visible':'collapse' }}">
+            <action-item.actionView>
+                <button text="Cancel" class="action-item"></button>
+            </action-item.actionView>
+            </action-item>
+         
+         <action-item tap="compareButtonTapped" ios.position="right">
+          <action-item.actionView>
+            <button text="{{ compareButtonText }}" class="action-item"></button>
+          </action-item.actionView>
+        </action-item>
+      </action-bar.actionItems>
+    </action-bar>
+  </dpg:DrawerPage.actionBar>
+     <grid-layout rows="auto, *" id="main-content">
+        <grid-layout row="0" rows="*" columns="*,*,*" class="myHeader" height="50">
+            <button height="100%" style="background-color:transparent;border-color:rgba(255, 0, 0, 0.0);border-width: 1;" tap="filtersButtonTapped" col="0" verticalAlignment="center" horizontalAlignment="left" isEnabled="{{ !inSelectionMode && !isLoading }}">
+                <button.formattedText>
+                    <formatted-string>
+                        <formatted-string.spans>
+                            <span text="&#xf1de;  " fontFamily="FontAwesome" fontSize="17" />
+                            <span text="All"/>
+                        </formatted-string.spans>
+                    </formatted-string>
+                </button.formattedText>
+            </button>
+            <label text="{{ isLoading, isLoading |  headerLabel(isLoading, carList) }}" col="1" verticalAlignment="center" horizontalAlignment="center" />
+            <button height="100%" style="background-color:transparent;border-color:rgba(255, 0, 0, 0.0);border-width: 1;" tap="savedButtonTapped" horizontalAlignment="right" text="Saved" col="2" verticalAlignment="center" isEnabled="{{ !inSelectionMode && !isLoading }}">
+                <button.formattedText>
+                        <formatted-string>
+                            <formatted-string.spans>
+                                <span text="&#xf005;  " fontFamily="FontAwesome" fontSize="14" />
+                                <span text="Saved" />
+                            </formatted-string.spans>
+                        </formatted-string>
+                    </button.formattedText>
+            </button>
+        </grid-layout>
+       <lv:rad-list-view
+            items="{{ carList }}"
+            itemTap="onItemTap"
+            visibility="visible"
+            id="car-list"
+            selectionBehavior="None"
+            itemSelecting="onItemSelecting"
+            itemSelected="onItemSelected"
+            itemDeselected="onItemDeselected"
+            itemDeselecting="onItemDeselecting"
+            row="1">       
+           <lv:rad-list-view.listViewLayout>
+               <lv:ListViewLinearLayout scrollDirection="Vertical" itemHeight="120" />
+           </lv:rad-list-view.listViewLayout>    
+           <lv:rad-list-view.itemTemplate>
+            <grid-layout backgroundColor="white">
+                <grid-layout columns="auto,auto, *" rows="auto,*">
+                    <label style="margin-left:10;font-size:20;color:#ff101f; background-color:transparent;" class="font-awesome" text="{{isSelected ? '&#xf05d;':'&#xf1db;'}}" rowSpan="2" visibility="{{ $parents['RadListView'].inSelectionMode, $parents['RadListView'].inSelectionMode ? 'visible' : 'collapse' }}" verticalAlignment="center" />     
+                    <label row="0" col="1" colSpan="3" class="listItem" text="{{ model }}"/>
+                    <image row="1" col="1" src="{{ imageUrl }}" class="image" />
+                    <stack-layout row="1" col="2" verticalAlignment="center">
+                        <repeater items="{{ extraData }}">
+                            <repeater.itemTemplate>
+                                <label class="itemDetailText" fontSize="14">
+                                <label.formattedText>
+                                    <formatted-string>
+                                    <formatted-string.spans>
+                                        <span text="{{ key +': ' }}" fontAttributes="Bold" />
+                                        <span text="{{ value }}" />
+                                    </formatted-string.spans>
+                                    </formatted-string>
+                                </label.formattedText>
+                            </label>
+                            </repeater.itemTemplate>
+                        </repeater>
+                    </stack-layout>
+                    <stack-layout class="separator" row="2" col="0" colSpan="3" 
+                    verticalAlignment="bottom"  />                        
+                </grid-layout>
+               <button width="20%" height="35%" style="background-color:transparent;border-color:rgba(255, 0, 0, 0.0);border-width: 1;font-size:16;color:#ff101f; text-align:center;" text="{{favorited? '&#xf005;' : '&#xf006;'}}" class="font-awesome" horizontalAlignment="right" verticalAlignment="top" tap="favoriteButtonTapped"></button>
+            </grid-layout>
+          </lv:rad-list-view.itemTemplate>
+        </lv:rad-list-view>
+        <activity-indicator class="activity-indicator" busy="{{ isLoading }}" rowSpan="2" />
+    </grid-layout>
+</dpg:DrawerPage>
