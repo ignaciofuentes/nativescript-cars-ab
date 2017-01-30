@@ -38,7 +38,7 @@
      <grid-layout rows="auto, *" id="main-content">
         <grid-layout class="myHeader-container" height="50">
         <grid-layout columns="*,*,*" class="myHeader" height="100%">
-            <button tap="filtersButtonTapped" col="0" verticalAlignment="center" horizontalAlignment="center" isEnabled="{{ !inSelectionMode && !isLoading }}">
+            <button tap="filtersButtonTapped" col="0" verticalAlignment="center" horizontalAlignment="left" isEnabled="{{ !inSelectionMode && !isLoading }}">
                 <button.formattedText>
                     <formatted-string>
                         <formatted-string.spans>
