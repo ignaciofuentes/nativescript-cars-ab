@@ -23,7 +23,7 @@
         </ios>
          <action-item tap="cancelButtonTapped" ios.position="left" visibility="{{ cancelButtonVisible ? 'visible':'collapse' }}">
             <action-item.actionView>
-                <button text="Cancel" class="action-item"></button>
+                <button text="Cancel" class="action-item" visibility="{{ cancelButtonVisible ? 'visible':'collapse' }}"></button>
             </action-item.actionView>
             </action-item>
          
