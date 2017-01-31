@@ -5,7 +5,6 @@
   xmlns:lv="nativescript-telerik-ui/listview"
   xmlns:widgets="shared/widgets"
   loaded="pageLoaded"
-  class="page"
   >
   <dpg:DrawerPage.sideDrawer>
   <drawer:rad-side-drawer id="drawer">
@@ -78,8 +77,7 @@
            <lv:rad-list-view.itemTemplate>
             <grid-layout backgroundColor="white">
                 <grid-layout columns="auto,auto, *" rows="auto,*">
-                    <label 
-                        style="margin-left:10;font-size:20;color:#ff101f; background-color:transparent;" 
+                    <label
                         class="check font-awesome" 
                         text="{{isSelected ? '&#xf05d;':'&#xf1db;'}}" 
                         rowSpan="2" 
