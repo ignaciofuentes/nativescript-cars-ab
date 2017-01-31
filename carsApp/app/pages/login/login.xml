@@ -10,16 +10,19 @@
     <action-bar class="action-bar" title="Login">
     </action-bar>
   </page.actionBar>
+  <grid-layout>
 
-  <StackLayout class="form">
-  <StackLayout class="input-field">
-      <Label text="Username"></Label>
-    <TextField class="input input-border" autocapitalizationType="none" autocorrect="false" keyboardType="email" returnKeyType="next"  height="40" text="{{ userName }}"></TextField>
-  </StackLayout>
-  <StackLayout class="input-field">
-   <Label text="Password"></Label> 
-    <TextField class="input input-border" height="40" hint="Password" secure="true" returnKeyType="done" text="{{ password }}"></TextField>
-  </StackLayout>
-  <button text="Log in" tap="login" height="40" class="btn btn-primary" />
-</StackLayout>
+    <stack-layout class="form">
+    <stack-layout class="input-field">
+        <label text="Username"></label>
+      <text-field class="input input-border" autocapitalizationType="none" autocorrect="false" keyboardType="email" returnKeyType="next"  height="40" text="{{ userName }}"></text-field>
+    </stack-layout>
+    <stack-layout class="input-field">
+    <label text="Password"></label> 
+      <text-field class="input input-border" height="40" hint="Password" secure="true" returnKeyType="done" text="{{ password }}"></text-field>
+    </stack-layout>
+    <button text="Log in" tap="login" height="40" class="btn btn-primary" />
+  </stack-layout>
+  <activity-indicator class="activity-indicator" busy="{{ loading }}" />
+  </grid-layout>
 </page>

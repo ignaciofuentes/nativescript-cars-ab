@@ -4,6 +4,7 @@
   xmlns:dpg="nativescript-telerik-ui/sidedrawer/drawerpage"
   xmlns:lv="nativescript-telerik-ui/listview"
   xmlns:widgets="shared/widgets"
+  xmlns:IC="nativescript-web-image-cache"
   loaded="pageLoaded"
   >
   <dpg:DrawerPage.sideDrawer>
@@ -75,8 +76,8 @@
                <lv:ListViewLinearLayout scrollDirection="Vertical" itemHeight="120" />
            </lv:rad-list-view.listViewLayout>    
            <lv:rad-list-view.itemTemplate>
-            <grid-layout backgroundColor="white">
-                <grid-layout columns="auto,auto, *" rows="auto,*">
+            <grid-layout backgroundColor="white" height="120">
+                <grid-layout columns="auto,auto, *" rows="auto,*" height="100%">
                     <label
                         class="check font-awesome" 
                         text="{{isSelected ? '&#xf05d;':'&#xf1db;'}}" 
@@ -84,7 +85,7 @@
                         visibility="{{ $parents['RadListView'].inSelectionMode, $parents['RadListView'].inSelectionMode ? 'visible' : 'collapse' }}" 
                         verticalAlignment="center" />     
                     <label row="0" col="1" colSpan="3" class="listItem" text="{{ model }}"/>
-                    <image row="1" col="1" src="{{ imageUrl }}" class="image" />
+                    <IC:web-image row="1" col="1" src="{{ imageUrl }}" stretch="aspectFill" class="image" />
                     <stack-layout row="1" col="2" verticalAlignment="center">
                         <repeater items="{{ extraData }}">
                             <repeater.itemTemplate>

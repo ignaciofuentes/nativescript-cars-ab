@@ -8,5 +8,11 @@ if(hasToken){
 else {
     moduleName = "pages/login/login";  
 }
+var imageCache = require("nativescript-web-image-cache");
+if (application.android) {
+    application.onLaunch = function (intent) {
+            imageCache.initialize();
+    };
+}
 application.start({ moduleName:  moduleName});
 

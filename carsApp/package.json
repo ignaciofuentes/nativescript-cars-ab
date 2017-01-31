@@ -13,11 +13,12 @@
     }
   },
   "dependencies": {
-    "tns-core-modules": "2.4.4",
     "nativescript-fancyalert": "^1.1.2",
     "nativescript-swiss-army-knife": "^1.0.71",
     "nativescript-telerik-ui": "1.5.1",
-    "nativescript-theme-core": "^1.0.2"
+    "nativescript-theme-core": "^1.0.2",
+    "nativescript-web-image-cache": "^3.4.0",
+    "tns-core-modules": "2.4.4"
   },
   "devDependencies": {
     "babel-traverse": "6.22.1",

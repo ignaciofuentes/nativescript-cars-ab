@@ -13,12 +13,15 @@ exports.loaded = function (args){
     ds = new DataService();
     vm.set("userName","admin");
     vm.set("password","123456");
+    vm.set("loading",false);
     args.object.bindingContext = vm;
     SwissArmyKnife.SwissArmyKnife.actionBarSetStatusBarStyle(1);
 }
 
 exports.login = function (){
+    vm.set("loading",true);
     ds.fetchToken(vm.userName, vm.password).then(function(r){
+        vm.set("loading",false);
         if(r.success){
             topmost().navigate({moduleName:"pages/home/home", clearHistory:true });
         }
