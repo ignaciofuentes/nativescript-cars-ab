@@ -9,3 +9,5 @@ tmp/
 .vscode
 npm-debug.log
 .DS_Store
+carsApp/.ab/*
+carsApp/iphonesimulatorapp.zip
