@@ -7,7 +7,7 @@
   class="page"
   >
   <page.actionBar>
-    <action-bar class="action-bar" title="Sign in?????">
+    <action-bar class="action-bar" title="Login">
     </action-bar>
   </page.actionBar>
   <grid-layout>
