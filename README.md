@@ -8,7 +8,11 @@ Simple demo of a cars browser mobile app built with NativeScript
 
 ![](screenshots/loginios.png)
 ![](screenshots/loginandroid.png)
+
+
 ![](screenshots/listios.png)
 ![](screenshots/listandroid.png)
+
+
 ![](screenshots/compareios.png)
 ![](screenshots/compareandroid.png)
